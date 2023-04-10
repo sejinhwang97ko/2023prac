@@ -1,5 +1,5 @@
 # 라이브러리 로드
-from flask import Flask, render_template, request, redirect
+from flask import Flask, render_template, request, redirect, jsonify
 import pandas as pd
 # Flask 클래스 생성
 # __name__ : 현재파일의 이름
@@ -33,6 +33,14 @@ def login():
 
 @app.route("/corona")
 def corona():
-    df = pd.read_csv("../csv/csv/corona.csv")
+    #get 형태에서 데이터를 받아서 변수에 대입
+    servicekey = request.args['servicekey']
+    print(servicekey)
+    if servicekey == "aaa":
+        df = pd.read_csv("../csv/csv/corona.csv")
+        json_data = df.to_json()
+        return jsonify(json_data)
+    else:
+        return "servicekey error"
 
 app.run(port=3000)
