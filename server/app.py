@@ -38,9 +38,12 @@ def corona():
     print(servicekey)
     if servicekey == "aaa":
         df = pd.read_csv("../csv/csv/corona.csv")
-        json_data = df.to_json()
-        return jsonify(json_data)
+        # json_data = df.to_json()
+        # return jsonify(json_data)
+        df = df.dropna(axis=0)
+        dict_data = df.to_dict("records")
+        return dict_data
     else:
         return "servicekey error"
 
-app.run(port=3000)
+app.run(host="0.0.0.0",port=3000) #다른 IP 열어두겠다라는 뜻으로 웬만하면 하지 말것
