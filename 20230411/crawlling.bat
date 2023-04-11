@@ -1,1 +1,1 @@
-python crawlling.py
+python C:\\Users\\Sejin\\Documents\\GitHub\\2023prac\\20230411\\crawlling.py

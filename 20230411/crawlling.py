@@ -61,5 +61,5 @@ df.columns =['항목', '2018/12(IFRS연결)', '2019/12(IFRS연결)', '2020/12(IF
 now = datetime.now()
 now = now.strftime("%Y%m%d%H%M%S")
 
-df.to_csv(f"test_Hyundai({now}).csv", index=False)
-
+df.to_csv(f"C:\\Users\\Sejin\\Documents\\GitHub\\2023prac\\20230411\\test_Hyundai({now}).csv", index=False)
+# 절대경로로만 가능
