@@ -1,0 +1,5 @@
+cmd에 sample_server 위치 복사해서
+cd ~ 코드 쓰고
+python main.py 하고
+웹 브라우져에 http://localhost:3000/ 
+쓰고 확인
