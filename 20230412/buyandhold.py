@@ -1,9 +1,11 @@
 import numpy as np
 from datetime import datetime
-
+import pandas as pd
 def bh(df,feature,start,end):
-    start = datetime.strptime(start, "%Y%m%d").isoformat()
-    end = datetime.strptime(end, "%Y%m%d").isoformat()
+    # 인덱스 시계열로 변경
+    df.index = pd.to_datetime(df.index)
+    start = datetime.strptime(start, "%Y%m%d")
+    end = datetime.strptime(end, "%Y%m%d")
     df = df.loc[start:end]
     df = df.loc[~df.isin([np.nan, np.inf, -np.inf]).any(1)]
     df_1 = df[[feature]]
