@@ -13,6 +13,7 @@
     
 
     <!-- Bootstrap core CSS -->
+    <!-- url_for 경로 설정 -->
     <link href="{{url_for('static', filename='css/bootstrap.min.css')}}" rel="stylesheet">
 
     <style>
@@ -75,8 +76,10 @@
               -->
             <tr>
               {%for col in columns%}
+              <!-- 연산이나 수행은 {}가 하나. columns를 col로 부르겠다 -->
               <th>{{col}}</th>
               {%endfor%}
+              <!-- for문이 끝나는 시기 -->
             </tr>
           </thead>
           <tbody>
@@ -113,14 +116,15 @@
       <!-- <script src="{{url_for('static', filename='js/dashboard.js')}}"></script> -->
       <script>
         //그래프에 들어갈 값들을 변수에 담아두는 과정
-        const labels = {{x_pos | tojson}};
+        const labels = {{x_pos | tojson}}; // 자바 스크립트로 바꿔주는 거
       
         const data = {
-          labels: labels,
+          labels: labels, //x축
           datasets: [{
-            label: '일일확진자',
+            label: '일일확진자', // 범례
             backgroundColor: 'rgb(255, 99, 132)',
-            borderColor: 'rgb(255, 99, 132)',
+            borderColor: 'rgb(255, 99, 132)', //테두리 색깔
+            // y축의 데이터
             data: {{y_pos | tojson}},
           }]
         };

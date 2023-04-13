@@ -3,9 +3,9 @@ from flask import Flask, render_template
 import pandas as pd
 
 ## Class 생성
-app = Flask(__name__)
+app = Flask(__name__) #name: 자기 파일의 이름
 
-## localhost:5000/ 요청시 index.html 리턴 api 생성
+## localhost:3000/ 요청시 index.html 리턴 api 생성
 @app.route("/")
 def index():
     # inex.html 그래프를 그리기 위해서 필요한 변수 값 
