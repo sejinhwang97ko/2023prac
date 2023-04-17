@@ -21,6 +21,9 @@ class Database:
             result = pd.DataFrame(result)
         else:
             self.cursor.execute(sql,values)
-            self._db.commit()
+            self.db.commit()
             result = "Query OK"
         return result
+
+    def sql_close(self):
+        self.db.close()
