@@ -34,3 +34,21 @@ mean(exam$math, na.rm = T) ->mean_math
 is.na(exam$math)
 ifelse(is.na(exam$math), mean_math, exam$math) ->exam$math
 exam
+
+# 이상치
+outlier = data.frame(gender = c(1,2,1,2,3),
+                     score = c(80,90,70,80,50))
+outlier
+# gender가 3인 데이터는 이상치로 체크
+
+# gender가 1 아니면 2인 경우에만 데이터를 출력
+outlier[outlier$gender== 1 | outlier$gender== 2,]
+# dplry 패키지를 사용하는 경우
+outlier %>% filter(gender == 1 | gender == 2)
+
+# gender가 1과 2가 아니면 결측치로 변경
+outlier$gender = ifelse(outlier$gender != 1 & outlier$gender != 2, NA, outlier$gender)
+ifelse(outlier$gender %in% c(1,2), outlier$gender, NA)
+
+# 결측치를 제거
+na.omit(outlier)
