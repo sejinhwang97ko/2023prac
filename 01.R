@@ -49,4 +49,23 @@ which(name != 'test2') # 1 3
 which(name == 'test5') # integer(0)
 
 # 함수
+install.packages("dplyr")
 
+library(dplyr)
+
+# 연산자 생성
+"%s%" <- function(x,y){
+  result = x + y
+  return(result)
+}
+5%s%2
+
+func_1 = function(){
+  print('Hello World')
+}
+func_1()
+
+func_2 = function(x,y){
+  return(x ^ y)
+}
+func_2(5,2)
