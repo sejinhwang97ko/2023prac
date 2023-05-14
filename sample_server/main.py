@@ -15,7 +15,7 @@ def index():
     # 일일 확진자 파생변수
     # x축에는 등록일시
     # y축에는 일일확진자
-    df = pd.read_csv("../csv/corona.csv")
+    df = pd.read_csv("../csv/csv/corona.csv")
     df.columns = ["인덱스", "등록일시", "사망자", "확진자", "게시글번호", 
                     "기준일", "기준시간", "수정일시", "누적의심자", 
                     "누적확진률"]
@@ -41,7 +41,7 @@ def index():
 
 @app.route("/index2")
 def index2():
-    df = pd.read_csv("../csv/corona.csv")
+    df = pd.read_csv("../csv/csv/corona.csv")
     df.columns = ["인덱스", "등록일시", "사망자", "확진자", "게시글번호", 
                     "기준일", "기준시간", "수정일시", "누적의심자", 
                     "누적확진률"]
@@ -71,7 +71,7 @@ def test():
     file_name = request.args['file']
     invest_type = request.args['type']
     print(file_name, invest_type)
-    df = pd.read_csv(f"../csv/{file_name}.csv", index_col='Date')
+    df = pd.read_csv(f"../csv/csv/{file_name}.csv", index_col='Date')
     invest_class = invest.Invest(df)
     if invest_type == 'buyandhold':
         result = invest_class.buyandhold()
